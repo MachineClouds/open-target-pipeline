@@ -1,0 +1,16 @@
+# Data files - too big for git, can be re-downloaded
+data/raw/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# OS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
