@@ -2,7 +2,7 @@
 
 A cloud-native data warehouse and target prioritisation pipeline built on the [Open Targets Platform](https://platform.opentargets.org/) — the same drug discovery dataset used by GSK, Pfizer, Sanofi, and other major pharmaceutical companies for target identification.
 
-**Status:** Active build, Week 1 of 6. Currently exploring raw data. See [Roadmap](#roadmap) below.
+**Status:** Active build, Week 2 of 6 complete. PostgreSQL warehouse running in Docker, 3.6M associations queryable via SQL. See [Roadmap](#roadmap) below.
 
 ## Why This Project
 
@@ -80,7 +80,7 @@ open-targets-pipeline/
 ## Roadmap
 
 - [x] **Week 1 — Data exploration:** download Open Targets 25.03, explore schema, run first cross-table join
-- [ ] **Week 2 — Local Postgres warehouse:** load raw Parquet into PostgreSQL via Docker
+- [x] **Week 2 — Local Postgres warehouse:** load raw Parquet into PostgreSQL via Docker
 - [ ] **Week 3 — dbt modelling:** build star schema with tests, implement hierarchical ontology rollup
 - [ ] **Week 4 — Airflow orchestration:** incremental loads handling Open Targets release cycle
 - [ ] **Week 5 — Scoring layer + Streamlit dashboard**
