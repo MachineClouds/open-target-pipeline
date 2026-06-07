@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "Raw Open Targets data loaded from Parquet"
+    schema: public
+    tables:
+      - name: raw_diseases
+      - name: raw_targets
+      - name: raw_associations_direct

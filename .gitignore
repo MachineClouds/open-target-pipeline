@@ -14,3 +14,11 @@ venv/
 # IDE
 .vscode/
 .idea/
+
+# dbt build artifacts
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+
+# Logs
+logs/
