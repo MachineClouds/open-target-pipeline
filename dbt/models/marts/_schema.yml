@@ -1,0 +1,79 @@
+version: 2
+
+models:
+  - name: dim_target
+    description: "Gene/protein dimension table — one row per gene"
+    columns:
+      - name: target_id
+        description: "Ensembl gene ID, primary key"
+        tests:
+          - not_null
+          - unique
+      - name: gene_symbol
+        tests:
+          - not_null
+
+  - name: dim_disease
+    description: "Disease dimension table — one row per disease"
+    columns:
+      - name: disease_id
+        description: "Ontology ID, primary key"
+        tests:
+          - not_null
+          - unique
+      - name: disease_name
+        tests:
+          - not_null
+
+  - name: fact_associations
+    description: "Scored target-disease associations — central fact table"
+    columns:
+      - name: target_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_target')
+              field: target_id
+      - name: disease_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_disease')
+              field: disease_id
+      - name: score
+        tests:
+          - not_null
+
+  - name: mart_top_targets_per_disease
+    description: "Pre-ranked top genes per disease"
+    columns:
+      - name: target_id
+        tests:
+          - not_null
+      - name: disease_id
+        tests:
+          - not_null
+      - name: rank
+        tests:
+          - not_null
+
+  - name: mart_target_summary
+    description: "Per-gene aggregations including breadth category"
+    columns:
+      - name: target_id
+        tests:
+          - not_null
+          - unique
+      - name: breadth_category
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['broad', 'moderate', 'specific']
+
+  - name: mart_disease_summary
+    description: "Per-disease aggregations including target counts and score stats"
+    columns:
+      - name: disease_id
+        tests:
+          - not_null
+          - unique
