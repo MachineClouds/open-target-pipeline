@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: stg_targets
+    description: "Cleaned target catalogue"
+    columns:
+      - name: target_id
+        tests:
+          - not_null
+          - unique
+      - name: gene_symbol
+        tests:
+          - not_null
+
+  - name: stg_diseases
+    description: "Cleaned disease catalogue"
+    columns:
+      - name: disease_id
+        tests:
+          - not_null
+          - unique
+      - name: disease_name
+        tests:
+          - not_null
+
+  - name: stg_associations
+    description: "Cleaned target-disease associations"
+    columns:
+      - name: target_id
+        tests:
+          - not_null
+      - name: disease_id
+        tests:
+          - not_null
+      - name: score
+        tests:
+          - not_null
