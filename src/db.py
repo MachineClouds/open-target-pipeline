@@ -1,10 +1,11 @@
 """Database connection module for the Open Targets pipeline."""
 
+import os
 from sqlalchemy import create_engine, text
 
 DB_USER = "shikhar"
 DB_PASSWORD = "opentargets"
-DB_HOST = "127.0.0.1"
+DB_HOST = os.getenv("POSTGRES_HOST", "127.0.0.1")
 DB_PORT = "5432"
 DB_NAME = "opentargets"
 

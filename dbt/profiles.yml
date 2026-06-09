@@ -1,0 +1,12 @@
+opentargets:
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('POSTGRES_HOST', '127.0.0.1') }}"
+      port: 5432
+      user: shikhar
+      password: opentargets
+      dbname: opentargets
+      schema: dbt_shikhar
+      threads: 4
+  target: dev
